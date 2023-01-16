@@ -8,7 +8,7 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigation = () => {
   return (
     <Drawer.Navigator>
-    <Drawer.Screen name="DrawerTest" component={TabNavigator} 
+    <Drawer.Screen name="UWEC TICKET APP" component={TabNavigator} 
     options={{ drawerLabel: 'Home' }}
     />
     <Drawer.Screen name="Notifications" component={Notifications} />

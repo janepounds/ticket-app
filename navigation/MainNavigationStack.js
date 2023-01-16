@@ -10,23 +10,30 @@ const Stack = createNativeStackNavigator();
 
 const MainNavigationStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+    screenOptions={{
+      headerShown: false
+    }}
+    >
       <Stack.Screen name='HomeScreen' component={HomeScreen}
-       options ={{
-        title: 'UWEC Ticket App',
-        headerStyle: {
-          backgroundColor: '#17c261',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
-      }}
+      //  options ={{
+      //   title: 'UWEC Ticket App',
+      //   headerStyle: {
+      //     backgroundColor: '#17c261',
+      //     visible: false
+      //   },
+      //   headerTintColor: '#fff',
+      //   headerTitleStyle: {
+      //     fontWeight: 'bold',
+      //   },
+        
+      
+      // }}
       />
       <Stack.Screen name='NewTicket' component={NewTicket}
        options={{ title: 'New Ticket' }} />
       <Stack.Screen name="Profile" component={Profile} />
-      <Stack.Screen name="Settings" component={Settings} />
+      <Stack.Screen name="Test" component={Settings} />
 
     </Stack.Navigator>
   );

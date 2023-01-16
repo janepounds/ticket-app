@@ -1,9 +1,10 @@
 import React,{useEffect} from 'react';
-import { View, Text ,StyleSheet ,FlatList, Image, TouchableOpacity} from 'react-native';
+import { View, Text ,StyleSheet ,FlatList, Image, TouchableOpacity } from 'react-native';
 import { FAB,Appbar, Provider as PaperProvider } from 'react-native-paper';
 import {useSelector, useDispatch} from 'react-redux';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {getTickets} from '../redux/actions';
+import { Card , LikeButton,Title,Headline} from 'react-native-paper';
 
  
 export default function HomeScreen({navigation}) {
@@ -17,19 +18,26 @@ export default function HomeScreen({navigation}) {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Home Screen</Text>
-
+        <Headline style={{ marginLeft: 30 }}>Tickets</Headline>
         <FlatList
         data={tickets}
-        keyExtractor={item => item.id.toString()}
         renderItem={({item}) => {
           return (
             (<Card
-                image={item.vehicleRegNo}
-                title={item.numberOfVehicles}
-                time={item.amount}
-            />)
+                style={{
+                  shadowOffset: { width: 5, height: 5 },
+                  width: '90%',
+                  borderRadius: 12,
+                  alignSelf: 'center',
+                  marginBottom: 10,
+                }}>
+                <Card.Content>
+                  <Title>{item.booking.bookingId}</Title>
+                </Card.Content>
+              </Card>)
           );
         }}
+        keyExtractor={(item,index) => index.toString()}
         showsVerticalScrollIndicator={false}
       />
 
@@ -51,20 +59,20 @@ export default function HomeScreen({navigation}) {
     );
   }
 
-  const Card = (props) => {
-    return (
+//    const Card = (props) => {
+//     return (
         
-        <View style={styles.card}>
-            <LikeButton/>
-            <Image style={styles.image} source={{uri: props.image}}/>
+//         <View style={styles.card}>
+//             <LikeButton/>
+//             <Image style={styles.image} source={{uri: props.image}}/>
             
-            <Text style={styles.title}>{props.title}</Text>
-            <Text style={styles.time}>{props.time}</Text>
-        </View>
+//             <Text style={styles.title}>{props.title}</Text>
+//             <Text style={styles.time}>{props.time}</Text>
+//         </View>
             
         
-    )
-}
+//     )
+// }
 
   const styles = StyleSheet.create({
 
@@ -94,3 +102,5 @@ export default function HomeScreen({navigation}) {
     },
    
   });
+
+;
