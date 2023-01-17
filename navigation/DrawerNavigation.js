@@ -11,7 +11,7 @@ const DrawerNavigation = () => {
     <Drawer.Screen name="UWEC TICKET APP" component={TabNavigator} 
     options={{ drawerLabel: 'Home' }}
     />
-    <Drawer.Screen name="Notifications" component={Notifications} />
+    <Drawer.Screen name="History" component={Notifications} />
   </Drawer.Navigator>
   );
 }
